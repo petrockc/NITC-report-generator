@@ -2,7 +2,7 @@
   "name": "nitc-report-generator",
   "version": "1.0.0",
   "description": "NITC Monthly Report Processing Station - Convert draft reports into professional HTML and text deliverables",
-  "homepage": "https://your-username.github.io/nitc-report-generator",
+  "homepage": "https://your-username.github.io/NITC-report-generator",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
