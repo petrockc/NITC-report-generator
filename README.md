@@ -9,8 +9,8 @@ Streamlined workflow for converting draft monthly reports into professional HTML
 4. Download both generated reports
 
 ## Team Access
-- **Production Site**: [https://petrockc.github.io/NITC-report-generator]
-- **Repository**: [Your GitHub Repo URL]
+- **Production Site**: [Production Site URL]
+- **Repository**: https://github.com/petrockc/NITC-report-generator
 - **Support**: [Contact Information]
 
 ## Monthly Workflow
