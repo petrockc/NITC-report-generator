@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/nitc-report-generator/static/css/main.9a5f8335.css",
+    "main.js": "/nitc-report-generator/static/js/main.0e6edad8.js",
+    "index.html": "/nitc-report-generator/index.html",
+    "main.9a5f8335.css.map": "/nitc-report-generator/static/css/main.9a5f8335.css.map",
+    "main.0e6edad8.js.map": "/nitc-report-generator/static/js/main.0e6edad8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9a5f8335.css",
+    "static/js/main.0e6edad8.js"
+  ]
+}
