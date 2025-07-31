@@ -5,37 +5,150 @@ const ProcessingStation = () => {
   const [activeTab, setActiveTab] = useState('process');
   const [promptCopied, setPromptCopied] = useState(false);
 
-  const standardPrompt = `Please process this NITC monthly draft report and generate both deliverables using the established NITC guidelines:
+  const standardPrompt = `Please process this NITC monthly draft report and generate both deliverables using the EXACT formatting specifications below:
 
 **DELIVERABLE 1: HTML Visual Report**
-- Navy-inspired design with blue color scheme (#1e3a8a, #3b82f6)
-- Training cards with 4-5 specific bullet points each
-- PWS section references in all major headers (e.g., "Section Title (PWS X.X)")
-- Consistent date format: "Month DD, YYYY" (e.g., "August 15, 2025")
-- Full financial precision - never round (e.g., "$12,633,596.54")
-- Bullet points aligned with card text (padding-left: 0; list-style-position: inside)
-- KPI cards showing contract performance metrics
-- Professional tables with status badges
-- Print-optimized for PDF conversion
+
+**MANDATORY: Use this EXACT CSS and HTML structure:**
+
+Required CSS Framework:
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.section-title {
+    background: #f1f5f9;
+    color: #1e40af;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #3b82f6;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.training-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.training-card ul {
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: #4b5563;
+    padding-left: 0;
+    list-style-position: inside;
+}
+
+.kpi-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.kpi-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #22c55e;
+    margin-bottom: 0.5rem;
+}
+
+**EXACT Section Structure Required:**
+1. Executive Summary - with 4 KPI cards in grid
+2. Training Operations Overview (PWS 3.1) - with training cards in grid
+3. Program Management Achievements (PWS 3.6) - with subsections
+4. Fundamental Skills Training (FST) (PWS 3.1) - with achievements and table
+5. Current Issues & Funding Status (PWS 3.3.2) - with pending funding table
+6. Financial Performance - with metrics grid and detailed table
+7. Contract Key Performance Indicators - with compliance table
+8. [Next Month] Objectives - with highlight box
+
+**Training Card Template (Use This Exact Format):**
+<div class="training-card">
+    <h4>[Program Name] <span style="font-size: 0.8em; color: #64748b;">(PWS X.X)</span></h4>
+    <p>[Brief program description]</p>
+    <ul style="margin: 1rem 0; font-size: 0.9rem; color: #4b5563; padding-left: 0; list-style-position: inside;">
+        <li>[Specific achievement with numbers and dates]</li>
+        <li>[Specific achievement with numbers and dates]</li>
+        <li>[Specific achievement with numbers and dates]</li>
+        <li>[Specific achievement with numbers and dates]</li>
+    </ul>
+    <div class="metrics-row">
+        <div class="metric-item">
+            <div class="metric-value">[Number]</div>
+            <div class="metric-label">[Label]</div>
+        </div>
+    </div>
+</div>
 
 **DELIVERABLE 2: Text Summary Report**
-- Organized by PWS sections (3.1, 3.2, 3.3, etc.)
-- Executive summary with key performance highlights
-- Detailed program information with quantified metrics
-- Financial transparency with exact figures
-- Issue tracking with submission dates
-- Next month objectives
-- Professional markdown formatting
 
-**QUALITY REQUIREMENTS:**
-- Extract specific achievements, dates, numbers from source
-- Include PWS paragraph references throughout
-- Maintain all decimal places in financial data
-- Use consistent date formatting across both reports
-- Ensure bullet alignment in HTML cards
-- Validate all KPI percentages and metrics
+EXACT Structure Required:
+# NITC Monthly Report Summary
+## [Month] [Year]
 
-Please create both reports as separate artifacts that can be copied and saved.`;
+**Contract:** N0017819D8663, Delivery Order N0018924F3006  
+**Contractor:** Technical Systems Integration, Inc.  
+**Period:** [Month] 1-31, [Year]  
+**Submitted to:** Mrs. Shay Previllon, COR
+
+## Executive Summary
+## PWS 3.1 - Educational and Training Services
+## PWS 3.2 - Training Implementation
+## PWS 3.3 - Systems Engineering and Technical Services
+## PWS 3.6 - Training Liaison
+## Financial Performance Summary
+## Current Issues and Corrective Actions
+## [Next Month] Objectives
+
+**CRITICAL Formatting Requirements:**
+- Dates: ALWAYS "Month DD, YYYY" format (e.g., "August 15, 2025")
+- Financial: NEVER round - show exact decimals (e.g., "$12,633,596.54")
+- PWS References: In ALL section headers (e.g., "Section Title (PWS X.X)")
+- Colors: Navy blues #1e3a8a and #3b82f6 ONLY
+- Bullet Points: Use padding-left: 0; list-style-position: inside;
+- Training Cards: 4-5 specific bullet points each with quantified achievements
+
+**QUALITY CONTROL CHECKLIST:**
+- Navy color scheme (#1e3a8a, #3b82f6) used throughout
+- All dates in "Month DD, YYYY" format
+- Financial figures show full precision (never rounded)
+- PWS references in ALL major section headers
+- Training cards have exactly 4-5 bullet points
+- Bullet points use proper CSS alignment
+- KPI cards show percentages
+- Responsive grid layouts used
+
+**CRITICAL: Generate Both Reports as Separate Artifacts**
+Create the HTML report as one artifact and the text summary as a completely separate artifact. Follow this template EXACTLY. Do not deviate from the CSS styles, HTML structure, or formatting requirements. Consistency is critical for monthly reporting.`;
 
   const copyPrompt = () => {
     navigator.clipboard.writeText(standardPrompt);
