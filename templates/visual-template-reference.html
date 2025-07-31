@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NITC Monthly Report Template - EXACT FORMAT REQUIRED</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+        
+        .header-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .header-info div {
+            background: rgba(255,255,255,0.1);
+            padding: 0.75rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .content {
+            padding: 2rem;
+        }
+        
+        .section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .section-title {
+            background: #f1f5f9;
+            color: #1e40af;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #3b82f6;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .kpi-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .kpi-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #22c55e;
+            margin-bottom: 0.5rem;
+        }
+        
+        .kpi-label {
+            font-size: 0.9rem;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .training-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .training-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .training-card h4 {
+            color: #1e40af;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .training-card ul {
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            color: #4b5563;
+            padding-left: 0;
+            list-style-position: inside;
+        }
+        
+        .metrics-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .metric-item {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1e40af;
+        }
+        
+        .metric-label {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-top: 0.25rem;
+        }
+        
+        .highlight-box {
+            background: #f0fdf4;
+            border: 1px solid #22c55e;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .footer {
+            background: #f1f5f9;
+            padding: 2rem;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>NITC Monthly Report</h1>
+            <div class="header-info">
+                <div><strong>Reporting Period:</strong><br>[Month] 1-31, [Year]</div>
+                <div><strong>Contract:</strong><br>N0017819D8663</div>
+                <div><strong>Delivery Order:</strong><br>N0018924F3006</div>
+                <div><strong>Contractor:</strong><br>Technical Systems Integration, Inc.</div>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Executive Summary -->
+            <div class="section">
+                <div class="section-title">Executive Summary</div>
+                <div class="highlight-box">
+                    <p><strong>Contract Performance:</strong> [Performance statement]</p>
+                </div>
+                
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-value">100%</div>
+                        <div class="kpi-label">Contract Compliance</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-value">100%</div>
+                        <div class="kpi-label">NITC Graduation Rate</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-value">1%</div>
+                        <div class="kpi-label">FOT Attrition Rate</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-value">100%</div>
+                        <div class="kpi-label">Staffing Level</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Training Operations -->
+            <div class="section">
+                <div class="section-title">Training Operations Overview (PWS 3.1)</div>
+                
+                <div class="training-grid">
+                    <div class="training-card">
+                        <h4>[Program Name] <span style="font-size: 0.8em; color: #64748b;">(PWS 3.1)</span></h4>
+                        <p>[Brief program description]</p>
+                        <ul style="margin: 1rem 0; font-size: 0.9rem; color: #4b5563; padding-left: 0; list-style-position: inside;">
+                            <li>[Specific achievement with numbers and dates]</li>
+                            <li>[Specific achievement with numbers and dates]</li>
+                            <li>[Specific achievement with numbers and dates]</li>
+                            <li>[Specific achievement with numbers and dates]</li>
+                        </ul>
+                        <div class="metrics-row">
+                            <div class="metric-item">
+                                <div class="metric-value">[Number]</div>
+                                <div class="metric-label">[Label]</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">[Date]</div>
+                                <div class="metric-label">[Label]</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financial Performance -->
+            <div class="section">
+                <div class="section-title">Financial Performance</div>
+                
+                <div class="metrics-row">
+                    <div class="metric-item">
+                        <div class="metric-value">$12,633,596.54</div>
+                        <div class="metric-label">Contract Ceiling</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">$3,626,905.32</div>
+                        <div class="metric-label">Funded to Date</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">$502,235.51</div>
+                        <div class="metric-label">[Month] Invoice Amount</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">6,411.00</div>
+                        <div class="metric-label">[Month] Labor Hours</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Report Prepared By:</strong> Tony Moreno, Program Manager | <strong>Phone:</strong> (904) 738-2926</p>
+            <p><strong>Technical Systems Integration, Inc.</strong> | Contract N0017819D8663, Delivery Order N0018924F3006</p>
+            <p>Submitted to: Mrs. Shay Previllon, Contracting Officer's Representative</p>
+        </div>
+    </div>
+</body>
+</html>

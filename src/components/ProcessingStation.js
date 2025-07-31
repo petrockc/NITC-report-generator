@@ -81,6 +81,47 @@ body {
     margin-bottom: 0.5rem;
 }
 
+.table-responsive {
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+th {
+    background: #374151;
+    color: white;
+    padding: 1rem 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 0.9rem;
+}
+
+tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+**CRITICAL: Use this EXACT table styling for ALL tables in the report:**
+- Pending Funding Status table
+- FST Classes table  
+- Contract KPIs table
+- Financial Details table
+- Any other tables throughout the report
+ALL tables must have dark headers (#374151) and alternating row colors for consistency.
+
 **EXACT Section Structure Required:**
 1. Executive Summary - with 4 KPI cards in grid
 2. Training Operations Overview (PWS 3.1) - with training cards in grid
@@ -106,6 +147,49 @@ body {
             <div class="metric-value">[Number]</div>
             <div class="metric-label">[Label]</div>
         </div>
+    </div>
+</div>
+
+**Financial Performance Section - MANDATORY Table Format:**
+<div class="subsection">
+    <div class="subsection-title">July 2025 Financial Details</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Financial Metric</th>
+                    <th>Amount</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Monthly Hours</td>
+                    <td>6,411.00</td>
+                    <td>Actual labor hours for July 2025</td>
+                </tr>
+                <tr>
+                    <td>Monthly Burn Rate</td>
+                    <td>62.94%</td>
+                    <td>Percentage of available funding utilized</td>
+                </tr>
+                <tr>
+                    <td>Invoice Date</td>
+                    <td>July 2, 2025</td>
+                    <td>Invoice #INV-0000001548</td>
+                </tr>
+                <tr>
+                    <td>Travel (CLIN 7100)</td>
+                    <td>$130.34 remaining</td>
+                    <td>94.55% expended ($2,392.04 funded)</td>
+                </tr>
+                <tr>
+                    <td>ODCs (CLIN 7110)</td>
+                    <td>$66,317.02 remaining</td>
+                    <td>31.73% expended ($97,140.02 funded)</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 
@@ -146,6 +230,8 @@ EXACT Structure Required:
 - Bullet points use proper CSS alignment
 - KPI cards show percentages
 - Responsive grid layouts used
+- ALL tables have consistent dark headers (#374151)
+- ALL tables have alternating row colors (#f9fafb)
 
 **CRITICAL: Generate Both Reports as Separate Artifacts**
 Create the HTML report as one artifact and the text summary as a completely separate artifact. Follow this template EXACTLY. Do not deviate from the CSS styles, HTML structure, or formatting requirements. Consistency is critical for monthly reporting.`;
