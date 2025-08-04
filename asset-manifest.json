@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/NITC-report-generator/static/css/main.d771d073.css",
-    "main.js": "/NITC-report-generator/static/js/main.acec5c26.js",
+    "main.js": "/NITC-report-generator/static/js/main.17028986.js",
     "index.html": "/NITC-report-generator/index.html",
     "main.d771d073.css.map": "/NITC-report-generator/static/css/main.d771d073.css.map",
-    "main.acec5c26.js.map": "/NITC-report-generator/static/js/main.acec5c26.js.map"
+    "main.17028986.js.map": "/NITC-report-generator/static/js/main.17028986.js.map"
   },
   "entrypoints": [
     "static/css/main.d771d073.css",
-    "static/js/main.acec5c26.js"
+    "static/js/main.17028986.js"
   ]
 }
