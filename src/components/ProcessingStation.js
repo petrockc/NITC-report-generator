@@ -124,13 +124,42 @@ ALL tables must have dark headers (#374151) and alternating row colors for consi
 
 **EXACT Section Structure Required:**
 1. Executive Summary - with 4 KPI cards in grid
-2. Training Operations Overview (PWS 3.1) - with training cards in grid
+2. Training Operations Overview (PWS 3.1) - with 2x2 training cards grid
 3. Program Management Achievements (PWS 3.6) - with subsections
-4. Fundamental Skills Training (FST) (PWS 3.1) - with achievements and table
-5. Current Issues & Funding Status (PWS 3.3.2) - with pending funding table
-6. Financial Performance - with metrics grid and detailed table
-7. Contract Key Performance Indicators - with compliance table
-8. [Next Month] Objectives - with highlight box
+4. Fundamental Skills Training (FST) (PWS 3.1) - with green overview box and achievements
+5. Technical and Specialized Training (TST) (PWS 3.1) - with green overview box and details
+6. Aviation Training Division (ATD) (PWS 3.1) - with green overview box and details
+7. Contractor Personnel Changes - always include even if no changes
+8. Current Issues & Funding Status (PWS 3.3.2) - with pending funding table
+9. Financial Performance - with metrics grid and detailed table
+10. Contract Key Performance Indicators - with compliance table
+11. [Next Month] Objectives - with highlight box
+
+**Training Operations Overview - MANDATORY 2x2 Grid Layout:**
+.training-grid-2x2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+    .training-grid-2x2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+**Grid Organization (Row 1 Top, Row 2 Bottom):**
+- Row 1: BUD/S Preparation Course (left), Dive Preparation Course (right)
+- Row 2: NAS Pensacola Aviation Training (left), NAS Whiting Field Aviation Training (right)
+
+**FST, TST, and ATD Sections - MANDATORY Overview Format:**
+Each section must include a green highlight overview box before any cards or details:
+
+<div class="highlight-box">
+    <h4><strong>[Month] [Year] Overview:</strong></h4>
+    <p>[2-3 sentence summary of key activities, achievements, and current status for this division]</p>
+</div>
 
 **Training Card Template (Use This Exact Format):**
 <div class="training-card">
@@ -169,6 +198,11 @@ ALL tables must have dark headers (#374151) and alternating row colors for consi
                     <td>Actual labor hours for July 2025</td>
                 </tr>
                 <tr>
+                    <td>Overtime Hours</td>
+                    <td>None</td>
+                    <td>Actual overtime hours for July 2025</td>
+                </tr>
+                <tr>
                     <td>Monthly Burn Rate</td>
                     <td>62.94%</td>
                     <td>Percentage of available funding utilized</td>
@@ -187,6 +221,32 @@ ALL tables must have dark headers (#374151) and alternating row colors for consi
                     <td>ODCs (CLIN 7110)</td>
                     <td>$66,317.02 remaining</td>
                     <td>31.73% expended ($97,140.02 funded)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+**Contractor Personnel Changes Section - ALWAYS REQUIRED:**
+Include this section even if no changes occurred:
+
+<div class="section">
+    <div class="section-title">Contractor Personnel Changes</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Position</th>
+                    <th>Change From</th>
+                    <th>Change To</th>
+                    <th>Effective Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="4" style="text-align: center; padding: 2rem; color: #6b7280;">
+                        No personnel changes during [Month] [Year]
+                    </td>
                 </tr>
             </tbody>
         </table>
