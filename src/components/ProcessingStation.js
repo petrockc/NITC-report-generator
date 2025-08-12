@@ -69,7 +69,7 @@ body {
     background: white;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
-    padding: 1.5rem;
+    padding: 1rem;
     text-align: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
@@ -78,7 +78,15 @@ body {
     font-size: 2rem;
     font-weight: bold;
     color: #22c55e;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.kpi-label {
+    font-size: 0.8rem;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
 }
 
 .table-responsive {
