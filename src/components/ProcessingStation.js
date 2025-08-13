@@ -65,6 +65,13 @@ body {
     list-style-position: inside;
 }
 
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
 .kpi-card {
     background: white;
     border: 1px solid #e5e7eb;
@@ -72,6 +79,8 @@ body {
     padding: 1rem;
     text-align: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 220px;
+    margin: 0 auto;
 }
 
 .kpi-value {
