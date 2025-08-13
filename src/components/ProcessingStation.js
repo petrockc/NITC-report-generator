@@ -66,21 +66,28 @@ body {
 }
 
 .kpi-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1rem;
-    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 1rem auto;
+    max-width: 880px;
+    gap: 20px;
 }
 
 .kpi-card {
     background: white;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
-    padding: 1rem;
+    padding: 1.5rem 1rem;
     text-align: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    max-width: 220px;
-    margin: 0 auto;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 200px;
+    flex-shrink: 0;
+    flex-grow: 0;
 }
 
 .kpi-value {
