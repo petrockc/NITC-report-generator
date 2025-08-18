@@ -5,9 +5,79 @@ const ProcessingStation = () => {
   const [activeTab, setActiveTab] = useState('process');
   const [promptCopied, setPromptCopied] = useState(false);
 
-  const standardPrompt = `Please process this NITC monthly draft report and generate both deliverables using the EXACT formatting specifications below:
+  const standardPrompt = `Please process this NITC monthly draft report and generate a SINGLE comprehensive HTML report combining both visual and detailed text formats:
 
-**DELIVERABLE 1: HTML Visual Report**
+**DELIVERABLE: Combined HTML Report Structure**
+
+**PART 1: Visual Executive Report (First Half)**
+- Executive Summary with KPI cards
+- Training Operations Overview (2x2 grid)
+- Program Management Achievements
+- FST, TST, ATD sections with green overview boxes
+- Contractor Personnel Changes
+- Current Issues & Funding Status
+- Financial Performance with detailed table
+- Contract Key Performance Indicators
+
+**PART 2: Detailed Text Summary (Second Half)**
+Add a page break and section divider, then include:
+- Complete PWS-organized text analysis
+- Detailed program narratives
+- Comprehensive financial breakdown
+- Full issue documentation
+- Next month objectives
+
+**Page Break CSS (Insert between Part 1 and Part 2):**
+<div class="page-break" style="page-break-before: always; margin-top: 3rem; padding-top: 2rem; border-top: 3px solid #1e40af;">
+    <div style="text-align: center; background: #f1f5f9; padding: 1rem; margin-bottom: 2rem;">
+        <h2 style="color: #1e40af; margin: 0;">DETAILED MONTHLY SUMMARY</h2>
+        <p style="color: #64748b; margin: 0.5rem 0 0 0;">Comprehensive PWS-Organized Analysis</p>
+    </div>
+</div>
+
+**Text Summary Structure (Part 2):**
+<div class="content" style="max-width: 1200px; margin: 0 auto; padding: 2rem; font-size: 0.95rem; line-height: 1.7; background: white;">
+    <h1>NITC Monthly Report Summary - [Month] [Year]</h1>
+    
+    <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;">
+        <p><strong>Contract:</strong> N0017819D8663, Delivery Order N0018924F3006</p>
+        <p><strong>Contractor:</strong> Technical Systems Integration, Inc.</p>
+        <p><strong>Period:</strong> [Month] 1-31, [Year]</p>
+        <p><strong>Submitted to:</strong> Mrs. Shay Previllon, COR</p>
+    </div>
+
+    <h2>Executive Summary</h2>
+    [Detailed executive summary content]
+
+    <h2>PWS 3.1 - Educational and Training Services</h2>
+    [Detailed PWS 3.1 content with subsections]
+
+    <h2>PWS 3.2 - Training Implementation</h2>
+    [Detailed PWS 3.2 content]
+
+    <h2>PWS 3.3 - Systems Engineering and Technical Services</h2>
+    [Detailed PWS 3.3 content]
+
+    <h2>PWS 3.6 - Training Liaison</h2>
+    [Detailed PWS 3.6 content]
+
+    <h2>Financial Performance Summary</h2>
+    [Detailed financial analysis]
+
+    <h2>Current Issues and Corrective Actions</h2>
+    [Detailed issue tracking]
+
+    <h2>[Next Month] Objectives</h2>
+    [Detailed next month planning]
+</div>
+
+**Benefits of Combined Format:**
+- Single PDF generation
+- No manual merging required
+- Complete document for COR submission
+- Professional page breaks
+- Consistent styling throughout
+- Easy printing and distribution
 
 **MANDATORY: Use this EXACT CSS and HTML structure:**
 
@@ -251,74 +321,8 @@ Each section must include a green highlight overview box before any cards or det
     </div>
 </div>
 
-**Contractor Personnel Changes Section - ALWAYS REQUIRED:**
-Include this section even if no changes occurred:
-
-<div class="section">
-    <div class="section-title">Contractor Personnel Changes</div>
-    <div class="table-responsive">
-        <table>
-            <thead>
-                <tr>
-                    <th>Position</th>
-                    <th>Change From</th>
-                    <th>Change To</th>
-                    <th>Effective Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td colspan="4" style="text-align: center; padding: 2rem; color: #6b7280;">
-                        No personnel changes during [Month] [Year]
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-
-**DELIVERABLE 2: Text Summary Report**
-
-EXACT Structure Required:
-# NITC Monthly Report Summary
-## [Month] [Year]
-
-**Contract:** N0017819D8663, Delivery Order N0018924F3006  
-**Contractor:** Technical Systems Integration, Inc.  
-**Period:** [Month] 1-31, [Year]  
-**Submitted to:** Mrs. Shay Previllon, COR
-
-## Executive Summary
-## PWS 3.1 - Educational and Training Services
-## PWS 3.2 - Training Implementation
-## PWS 3.3 - Systems Engineering and Technical Services
-## PWS 3.6 - Training Liaison
-## Financial Performance Summary
-## Current Issues and Corrective Actions
-## [Next Month] Objectives
-
-**CRITICAL Formatting Requirements:**
-- Dates: ALWAYS "Month DD, YYYY" format (e.g., "August 15, 2025")
-- Financial: NEVER round - show exact decimals (e.g., "$12,633,596.54")
-- PWS References: In ALL section headers (e.g., "Section Title (PWS X.X)")
-- Colors: Navy blues #1e3a8a and #3b82f6 ONLY
-- Bullet Points: Use padding-left: 0; list-style-position: inside;
-- Training Cards: 4-5 specific bullet points each with quantified achievements
-
-**QUALITY CONTROL CHECKLIST:**
-- Navy color scheme (#1e3a8a, #3b82f6) used throughout
-- All dates in "Month DD, YYYY" format
-- Financial figures show full precision (never rounded)
-- PWS references in ALL major section headers
-- Training cards have exactly 4-5 bullet points
-- Bullet points use proper CSS alignment
-- KPI cards show percentages
-- Responsive grid layouts used
-- ALL tables have consistent dark headers (#374151)
-- ALL tables have alternating row colors (#f9fafb)
-
-**CRITICAL: Generate Both Reports as Separate Artifacts**
-Create the HTML report as one artifact and the text summary as a completely separate artifact. Follow this template EXACTLY. Do not deviate from the CSS styles, HTML structure, or formatting requirements. Consistency is critical for monthly reporting.`;
+**CRITICAL: Generate Single Combined HTML Report**
+Create ONE comprehensive HTML artifact that includes both the visual report and detailed text summary. DO NOT create separate artifacts. The report should flow from visual executive summary to detailed analysis with a clear page break between sections.`;
 
   const copyPrompt = () => {
     navigator.clipboard.writeText(standardPrompt);
