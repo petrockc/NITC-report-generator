@@ -67,9 +67,9 @@ Add a blue divider (NO page break), then include detailed text analysis, and END
 
 **Gray Footer Banner (END of entire document):**
 <div class="footer">
-    <p><strong>Report Prepared By:</strong><br>Tony Moreno, Program Manager | <strong>Phone:</strong> (904) 738-2926</p>
+    <p><strong>Report Prepared By:</strong><br>Tony Moreno, Program Manager | Phone: (904) 738-2926</p>
     <p><strong>Technical Systems Integration, Inc.</strong> | Contract N0017819D8663, Delivery Order N0018924F3006</p>
-    <p><strong>Submitted to:</strong> Mrs. Shay Previllon, Contracting Officer's Representative</p>
+    <p>Submitted to: Mrs. Shay Previllon, Contracting Officer's Representative</p>
 </div>
 
 **Benefits of Combined Format:**
