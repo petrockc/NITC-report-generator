@@ -20,15 +20,16 @@ const ProcessingStation = () => {
 - Contract Key Performance Indicators
 
 **PART 2: Detailed Text Summary (Second Half)**
-Add a page break and section divider, then include:
+Add a blue divider (NO page break), then include detailed text analysis, and END with gray footer banner:
 - Complete PWS-organized text analysis
 - Detailed program narratives
 - Comprehensive financial breakdown
 - Full issue documentation
 - Next month objectives
+- Gray footer banner at the very end
 
-**Page Break CSS (Insert between Part 1 and Part 2):**
-<div class="page-break" style="page-break-before: always; margin-top: 3rem; padding-top: 2rem; border-top: 3px solid #1e40af;">
+**Blue Section Divider (NO page break, just visual separator):**
+<div style="margin-top: 3rem; padding-top: 2rem; border-top: 3px solid #1e40af;">
     <div style="text-align: center; background: #f1f5f9; padding: 1rem; margin-bottom: 2rem;">
         <h2 style="color: #1e40af; margin: 0;">DETAILED MONTHLY SUMMARY</h2>
         <p style="color: #64748b; margin: 0.5rem 0 0 0;">Comprehensive PWS-Organized Analysis</p>
@@ -39,13 +40,6 @@ Add a page break and section divider, then include:
 <div class="content" style="max-width: 1200px; margin: 0 auto; padding: 2rem; font-size: 0.95rem; line-height: 1.7; background: white;">
     <h1>NITC Monthly Report Summary - [Month] [Year]</h1>
     
-    <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;">
-        <p><strong>Contract:</strong> N0017819D8663, Delivery Order N0018924F3006</p>
-        <p><strong>Contractor:</strong> Technical Systems Integration, Inc.</p>
-        <p><strong>Period:</strong> [Month] 1-31, [Year]</p>
-        <p><strong>Submitted to:</strong> Mrs. Shay Previllon, COR</p>
-    </div>
-
     <h2>Executive Summary</h2>
     [Detailed executive summary content]
 
@@ -69,6 +63,13 @@ Add a page break and section divider, then include:
 
     <h2>[Next Month] Objectives</h2>
     [Detailed next month planning]
+</div>
+
+**Gray Footer Banner (END of entire document):**
+<div class="footer">
+    <p><strong>Report Prepared By:</strong><br>Tony Moreno, Program Manager | <strong>Phone:</strong> (904) 738-2926</p>
+    <p><strong>Technical Systems Integration, Inc.</strong> | Contract N0017819D8663, Delivery Order N0018924F3006</p>
+    <p><strong>Submitted to:</strong> Mrs. Shay Previllon, Contracting Officer's Representative</p>
 </div>
 
 **Benefits of Combined Format:**
@@ -322,7 +323,7 @@ Each section must include a green highlight overview box before any cards or det
 </div>
 
 **CRITICAL: Generate Single Combined HTML Report**
-Create ONE comprehensive HTML artifact that includes both the visual report and detailed text summary. DO NOT create separate artifacts. The report should flow from visual executive summary to detailed analysis with a clear page break between sections.`;
+Create ONE comprehensive HTML artifact that includes both the visual report and detailed text summary. The report should flow from visual executive summary to detailed analysis with a blue section divider, ending with a professional gray footer containing all contact and contract information.`;
 
   const copyPrompt = () => {
     navigator.clipboard.writeText(standardPrompt);
@@ -353,13 +354,13 @@ Create ONE comprehensive HTML artifact that includes both the visual report and 
     },
     {
       step: 5,
-      title: "Review Generated Reports",
-      details: "Claude will create two artifacts: HTML visual report and text summary. Review both for accuracy."
+      title: "Review Generated Report",
+      details: "Claude will create one comprehensive HTML artifact with both visual and detailed sections. Review for accuracy."
     },
     {
       step: 6,
       title: "Save & Submit",
-      details: "Copy HTML code to save as .html file. Copy text report for .txt/.pdf. Submit both to COR."
+      details: "Copy HTML code to save as .html file. Convert to PDF for COR submission. Single document contains everything."
     }
   ];
 
@@ -376,8 +377,8 @@ Create ONE comprehensive HTML artifact that includes both the visual report and 
 
   const troubleshootingTips = [
     {
-      issue: "Claude doesn't generate both artifacts",
-      solution: "Ask: 'Please create the HTML report as one artifact and the text summary as a separate artifact.'"
+      issue: "Claude doesn't generate the combined report",
+      solution: "Ask: 'Please create ONE comprehensive HTML report that includes both the visual section and detailed text summary sections.'"
     },
     {
       issue: "Dates are inconsistent",
@@ -465,15 +466,15 @@ Create ONE comprehensive HTML artifact that includes both the visual report and 
                 <div className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
                   <div>
-                    <strong className="text-green-800">HTML Artifact:</strong>
-                    <p className="text-green-700 text-sm">Visual report with Navy styling, training cards, and KPI dashboard</p>
+                    <strong className="text-green-800">Single Combined HTML Report:</strong>
+                    <p className="text-green-700 text-sm">Complete document with visual cards/charts PLUS detailed text analysis with blue section divider</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
                   <div>
-                    <strong className="text-green-800">Text Artifact:</strong>
-                    <p className="text-green-700 text-sm">PWS-organized summary with detailed metrics and analysis</p>
+                    <strong className="text-green-800">One-Step PDF Conversion:</strong>
+                    <p className="text-green-700 text-sm">No manual merging needed - convert single HTML to PDF for COR submission</p>
                   </div>
                 </div>
               </div>
@@ -484,9 +485,9 @@ Create ONE comprehensive HTML artifact that includes both the visual report and 
               <ul className="space-y-2 text-amber-800 text-sm">
                 <li>• Use a fresh Claude chat for each report</li>
                 <li>• Upload draft file immediately after pasting prompt</li>
-                <li>• Review both artifacts before saving</li>
+                <li>• Review the combined report before saving</li>
                 <li>• Test HTML file in browser before submission</li>
-                <li>• Keep draft file name for reference</li>
+                <li>• Convert HTML to PDF for COR submission</li>
               </ul>
             </div>
           </div>
