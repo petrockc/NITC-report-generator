@@ -16,11 +16,11 @@ Streamlined workflow for converting NITC monthly draft reports into professional
 1. **Visit:** [https://petrockc.github.io/NITC-report-generator/](https://petrockc.github.io/NITC-report-generator/)
 2. **Copy** the standard prompt from the "Process Report" tab
 3. **Open** new Claude.ai chat → Paste prompt → Upload draft
-4. **Download** both generated reports → Submit to COR
+4. **Download** single generated report
 
 ### Monthly Workflow
 ```
-Draft Report → Processing Station → Claude Chat → Two Deliverables → COR Submission
+Draft Report → Processing Station → Claude Chat → Single Report → Convert to PDF → COR Submission
 ```
 
 ## 📋 Features
@@ -46,16 +46,16 @@ Draft Report → Processing Station → Claude Chat → Two Deliverables → COR
 - **[Troubleshooting](docs/TROUBLESHOOTING.md)**: Common issues and solutions
 - **[Deployment Guide](deployment/deploy-instructions.md)**: Setup and maintenance
 
-## 🎯 Output Deliverables
+## 🎯 Output Report
 
-### HTML Visual Report
+### HTML Visual Section
 - Navy-inspired professional design
 - Interactive training cards with metrics
 - KPI dashboard with performance indicators
 - PWS section references throughout
 - Print-optimized for PDF conversion
 
-### Text Summary Report
+### Text Summary Section
 - PWS-organized detailed analysis
 - Executive summary with key metrics
 - Financial data with full precision
@@ -122,8 +122,6 @@ npm run deploy
 - **Live Site**: [https://petrockc.github.io/NITC-report-generator/](https://petrockc.github.io/NITC-report-generator/)
 - **Repository**: [https://github.com/petrockc/NITC-report-generator](https://github.com/petrockc/NITC-report-generator)
 - **Primary Contact**: Chris Petrock
-- **COR**: Mrs. Shay Previllon
-- **Contract**: N0017819D8663, DO N0018924F3006
 
 ## 📄 License
 
