@@ -10,77 +10,55 @@ const ProcessingStation = () => {
 **DELIVERABLE: Combined HTML Report Structure**
 
 **PART 1: Visual Executive Report (First Half)**
-- Executive Summary with KPI cards
-- Training Operations Overview (2x2 grid)
-- Program Management Achievements
-- FST, TST, ATD sections with green overview boxes
-- Contractor Personnel Changes
-- Current Issues & Funding Status
+- Executive Summary with KPI cards (4 cards in horizontal grid)
+- Training Operations Overview (adaptive grid based on active programs)
+- Program Management Achievements (PWS 3.6)
+- Training Division sections (FST, TST, ATD) with green overview boxes (only include divisions with activity)
+- Contractor Personnel Changes (always include, even if no changes)
+- Current Issues & Funding Status (PWS 3.3.2)
 - Financial Performance with detailed table
 - Contract Key Performance Indicators
 
 **PART 2: Detailed Text Summary (Second Half)**
-Add a blue divider (NO page break), then include detailed text analysis, and END with gray footer banner:
+Add blue section divider, then include detailed text analysis, ending with gray footer:
 - Complete PWS-organized text analysis
-- Detailed program narratives
+- Detailed program narratives for active programs only
 - Comprehensive financial breakdown
 - Full issue documentation
 - Next month objectives
 - Gray footer banner at the very end
 
-**Blue Section Divider (NO page break, just visual separator):**
-<div style="margin-top: 3rem; padding-top: 2rem; border-top: 3px solid #1e40af;">
-    <div style="text-align: center; background: #f1f5f9; padding: 1rem; margin-bottom: 2rem;">
-        <h2 style="color: #1e40af; margin: 0;">DETAILED MONTHLY SUMMARY</h2>
-        <p style="color: #64748b; margin: 0.5rem 0 0 0;">Comprehensive PWS-Organized Analysis</p>
-    </div>
+**ADAPTIVE CONTENT STRUCTURE**
+
+**Training Operations Overview - Flexible Grid:**
+- Create grid based on ACTIVE programs mentioned in the draft
+- Use 2x2 grid if 4 programs are active
+- Use 2x1 grid if 2-3 programs are active  
+- Use single column if only 1 program is active
+- Common programs: BUD/S Preparation, Dive Preparation, NAS Pensacola Aviation, NAS Whiting Field Aviation
+- IMPORTANT: Only include programs that have actual activity/students in the reporting period
+
+**Training Division Sections - Conditional Inclusion:**
+Only create sections for divisions with reported activity:
+- FST (Fundamental Skills Training) - Include if Basic Military Training, dunker training, or foundational courses mentioned
+- TST (Technical and Specialized Training) - Include if specialized technical courses, certifications, or advanced training mentioned  
+- ATD (Aviation Training Division) - Include if flight training, aviation courses, or pilot/aircrew training mentioned
+
+Format for each active division:
+<div class="highlight-box">
+    <h4><strong>[Month] [Year] Overview:</strong></h4>
+    <p>[2-3 sentence summary of key activities, achievements, and current status for this division]</p>
 </div>
 
-**Text Summary Structure (Part 2):**
-<div class="content" style="max-width: 1200px; margin: 0 auto; padding: 2rem; font-size: 0.95rem; line-height: 1.7; background: white;">
-    <h1>NITC Monthly Report Summary - [Month] [Year]</h1>
-    
-    <h2>Executive Summary</h2>
-    [Detailed executive summary content]
+**Financial Data - Use Actual Values:**
+Extract and use EXACT financial figures from the draft:
+- Monthly labor hours (exact number from draft)
+- Invoice amounts (full precision, never rounded)
+- Burn rates (to 2 decimal places)
+- Remaining funding by CLIN (exact amounts)
+- Travel and ODC balances (actual remaining amounts)
 
-    <h2>PWS 3.1 - Educational and Training Services</h2>
-    [Detailed PWS 3.1 content with subsections]
-
-    <h2>PWS 3.2 - Training Implementation</h2>
-    [Detailed PWS 3.2 content]
-
-    <h2>PWS 3.3 - Systems Engineering and Technical Services</h2>
-    [Detailed PWS 3.3 content]
-
-    <h2>PWS 3.6 - Training Liaison</h2>
-    [Detailed PWS 3.6 content]
-
-    <h2>Financial Performance Summary</h2>
-    [Detailed financial analysis]
-
-    <h2>Current Issues and Corrective Actions</h2>
-    [Detailed issue tracking]
-
-    <h2>[Next Month] Objectives</h2>
-    [Detailed next month planning]
-</div>
-
-**Gray Footer Banner (END of entire document):**
-<div class="footer">
-    <p><strong>Report Prepared By:</strong><br>Tony Moreno, Program Manager | Phone: (904) 738-2926</p>
-    <p><strong>Technical Systems Integration, Inc.</strong> | Contract N0017819D8663, Delivery Order N0018924F3006</p>
-    <p>Submitted to: Mrs. Shay Previllon, Contracting Officer's Representative</p>
-</div>
-
-**Benefits of Combined Format:**
-- Single PDF generation
-- No manual merging required
-- Complete document for COR submission
-- Professional page breaks
-- Consistent styling throughout
-- Easy printing and distribution
-
-**MANDATORY: Use this EXACT CSS and HTML structure:**
+**MANDATORY CSS AND HTML STRUCTURE:**
 
 Required CSS Framework:
 * {
@@ -120,22 +98,6 @@ body {
     font-weight: 600;
 }
 
-.training-card {
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.training-card ul {
-    margin: 1rem 0;
-    font-size: 0.9rem;
-    color: #4b5563;
-    padding-left: 0;
-    list-style-position: inside;
-}
-
 .kpi-grid {
     display: flex;
     justify-content: space-between;
@@ -161,23 +123,37 @@ body {
     flex-grow: 0;
 }
 
-.kpi-value {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #22c55e;
-    margin-bottom: 0.25rem;
+.training-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin: 1rem 0;
 }
 
-.kpi-label {
-    font-size: 0.8rem;
-    color: #6b7280;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    line-height: 1.2;
+.grid-2x2 { grid-template-columns: repeat(2, 1fr); }
+.grid-2x1 { grid-template-columns: repeat(2, 1fr); }
+.grid-1x1 { grid-template-columns: 1fr; }
+
+.training-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.table-responsive {
-    overflow-x: auto;
+.training-card ul {
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: #4b5563;
+    padding-left: 0;
+    list-style-position: inside;
+}
+
+.highlight-box {
+    background: #f0fdf4;
+    border: 1px solid #22c55e;
+    border-radius: 8px;
+    padding: 1.5rem;
     margin: 1rem 0;
 }
 
@@ -209,121 +185,61 @@ tr:nth-child(even) {
     background-color: #f9fafb;
 }
 
-**CRITICAL: Use this EXACT table styling for ALL tables in the report:**
-- Pending Funding Status table
-- FST Classes table  
-- Contract KPIs table
-- Financial Details table
-- Any other tables throughout the report
-ALL tables must have dark headers (#374151) and alternating row colors for consistency.
+**CONTENT EXTRACTION GUIDELINES:**
 
-**EXACT Section Structure Required:**
-1. Executive Summary - with 4 KPI cards in grid
-2. Training Operations Overview (PWS 3.1) - with 2x2 training cards grid
-3. Program Management Achievements (PWS 3.6) - with subsections
-4. Fundamental Skills Training (FST) (PWS 3.1) - with green overview box and achievements
-5. Technical and Specialized Training (TST) (PWS 3.1) - with green overview box and details
-6. Aviation Training Division (ATD) (PWS 3.1) - with green overview box and details
-7. Contractor Personnel Changes - always include even if no changes
-8. Current Issues & Funding Status (PWS 3.3.2) - with pending funding table
-9. Financial Performance - with metrics grid and detailed table
-10. Contract Key Performance Indicators - with compliance table
-11. [Next Month] Objectives - with highlight box
-
-**Training Operations Overview - MANDATORY 2x2 Grid Layout:**
-.training-grid-2x2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin: 1rem 0;
-}
-
-@media (max-width: 768px) {
-    .training-grid-2x2 {
-        grid-template-columns: 1fr;
-    }
-}
-
-**Grid Organization (Row 1 Top, Row 2 Bottom):**
-- Row 1: BUD/S Preparation Course (left), Dive Preparation Course (right)
-- Row 2: NAS Pensacola Aviation Training (left), NAS Whiting Field Aviation Training (right)
-
-**FST, TST, and ATD Sections - MANDATORY Overview Format:**
-Each section must include a green highlight overview box before any cards or details:
-
-<div class="highlight-box">
-    <h4><strong>[Month] [Year] Overview:</strong></h4>
-    <p>[2-3 sentence summary of key activities, achievements, and current status for this division]</p>
-</div>
-
-**Training Card Template (Use This Exact Format):**
+Training Card Template (Adapt to actual programs):
 <div class="training-card">
-    <h4>[Program Name] <span style="font-size: 0.8em; color: #64748b;">(PWS X.X)</span></h4>
-    <p>[Brief program description]</p>
+    <h4>[Actual Program Name from Draft] <span style="font-size: 0.8em; color: #64748b;">(PWS X.X)</span></h4>
+    <p>[Brief program description based on activities]</p>
     <ul style="margin: 1rem 0; font-size: 0.9rem; color: #4b5563; padding-left: 0; list-style-position: inside;">
-        <li>[Specific achievement with numbers and dates]</li>
-        <li>[Specific achievement with numbers and dates]</li>
-        <li>[Specific achievement with numbers and dates]</li>
-        <li>[Specific achievement with numbers and dates]</li>
+        <li>[Extract specific achievements with numbers and dates from draft]</li>
+        <li>[Include graduations, arrivals, completions mentioned]</li>
+        <li>[Add simulator events, classroom hours if specified]</li>
+        <li>[Mention any zero failure rates or exceptional performance]</li>
     </ul>
     <div class="metrics-row">
         <div class="metric-item">
-            <div class="metric-value">[Number]</div>
-            <div class="metric-label">[Label]</div>
+            <div class="metric-value">[Extract actual numbers from draft]</div>
+            <div class="metric-label">[Use appropriate label based on context]</div>
         </div>
     </div>
 </div>
 
-**Financial Performance Section - MANDATORY Table Format:**
-<div class="subsection">
-    <div class="subsection-title">July 2025 Financial Details</div>
-    <div class="table-responsive">
-        <table>
-            <thead>
-                <tr>
-                    <th>Financial Metric</th>
-                    <th>Amount</th>
-                    <th>Details</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Monthly Hours</td>
-                    <td>6,411.00</td>
-                    <td>Actual labor hours for July 2025</td>
-                </tr>
-                <tr>
-                    <td>Overtime Hours</td>
-                    <td>None</td>
-                    <td>Actual overtime hours for July 2025</td>
-                </tr>
-                <tr>
-                    <td>Monthly Burn Rate</td>
-                    <td>62.94%</td>
-                    <td>Percentage of available funding utilized</td>
-                </tr>
-                <tr>
-                    <td>Invoice Date</td>
-                    <td>July 2, 2025</td>
-                    <td>Invoice #INV-0000001548</td>
-                </tr>
-                <tr>
-                    <td>Travel (CLIN 7100)</td>
-                    <td>$130.34 remaining</td>
-                    <td>94.55% expended ($2,392.04 funded)</td>
-                </tr>
-                <tr>
-                    <td>ODCs (CLIN 7110)</td>
-                    <td>$66,317.02 remaining</td>
-                    <td>31.73% expended ($97,140.02 funded)</td>
-                </tr>
-            </tbody>
-        </table>
+**Date Formatting Standard:**
+- ALWAYS use format: Month DD, YYYY
+- Examples: "August 15, 2025", "September 03, 2025"
+- Never use: Aug 15, 2025 or 15 August 2025 or 8/15/25
+
+**Financial Precision:**
+- NEVER round financial figures
+- Use exact amounts: "$12,633,596.54" not "$12.6M"
+- Include all decimal places as provided in source data
+
+**Blue Section Divider (Visual Separator):**
+<div style="margin-top: 3rem; padding-top: 2rem; border-top: 3px solid #1e40af;">
+    <div style="text-align: center; background: #f1f5f9; padding: 1rem; margin-bottom: 2rem;">
+        <h2 style="color: #1e40af; margin: 0;">DETAILED MONTHLY SUMMARY</h2>
+        <p style="color: #64748b; margin: 0.5rem 0 0 0;">Comprehensive PWS-Organized Analysis</p>
     </div>
 </div>
 
-**CRITICAL: Generate Single Combined HTML Report**
-Create ONE comprehensive HTML artifact that includes both the visual report and detailed text summary. The report should flow from visual executive summary to detailed analysis with a blue section divider, ending with a professional gray footer containing all contact and contract information.`;
+**Gray Footer Banner (End of Document):**
+<div class="footer" style="background: #f1f5f9; padding: 2rem; text-align: center; color: #64748b; font-size: 0.9rem;">
+    <p><strong>Report Prepared By:</strong><br>Tony Moreno, Program Manager | Phone: (904) 738-2926</p>
+    <p><strong>Technical Systems Integration, Inc.</strong> | Contract N0017819D8663, Delivery Order N0018924F3006</p>
+    <p>Submitted to: Mrs. Shay Previllon, Contracting Officer's Representative</p>
+</div>
+
+**CRITICAL INSTRUCTIONS:**
+
+1. Analyze the draft first - Identify which programs/divisions have actual activity before creating sections
+2. Use adaptive grids - Don't force a 2x2 grid if only 2 programs are active
+3. Extract exact data - Pull specific numbers, dates, and achievements from the draft content
+4. Include PWS references - Add (PWS X.X) to all major section headers
+5. Maintain consistency - Use dark table headers (#374151) and alternating row colors for ALL tables
+6. Create single HTML artifact - Include both visual report and detailed text summary in one document
+
+GENERATE: One comprehensive HTML artifact that adapts to the actual content and activity levels described in the monthly draft report.`;
 
   const copyPrompt = () => {
     navigator.clipboard.writeText(standardPrompt);
@@ -395,6 +311,10 @@ Create ONE comprehensive HTML artifact that includes both the visual report and 
     {
       issue: "Bullet points not aligned",
       solution: "Ask for: 'Fix bullet point alignment in training cards using padding-left: 0; list-style-position: inside;'"
+    },
+    {
+      issue: "Grid layout issues",
+      solution: "Specify: 'Use adaptive grid - only create cards for programs with actual activity this month.'"
     }
   ];
 
@@ -402,7 +322,7 @@ Create ONE comprehensive HTML artifact that includes both the visual report and 
     <div className="max-w-6xl mx-auto p-6 bg-white">
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-blue-900 mb-2">NITC Monthly Report Processing Station</h1>
-        <p className="text-gray-600">Complete workflow for generating HTML and text deliverables from draft reports</p>
+        <p className="text-gray-600">Complete workflow for generating comprehensive HTML reports from draft reports</p>
         <div className="mt-2 text-sm text-gray-500">
           Contract N0017819D8663 | Technical Systems Integration, Inc.
         </div>
@@ -438,8 +358,8 @@ Create ONE comprehensive HTML artifact that includes both the visual report and 
       {activeTab === 'process' && (
         <div className="space-y-6">
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-            <h2 className="text-xl font-semibold text-blue-900 mb-4">Standard Processing Prompt</h2>
-            <p className="text-blue-700 mb-4">Copy this prompt and use it with every monthly report for consistent results:</p>
+            <h2 className="text-xl font-semibold text-blue-900 mb-4">Robust Processing Prompt</h2>
+            <p className="text-blue-700 mb-4">This adaptive prompt works with varying programs and monthly data:</p>
             
             <div className="bg-white border border-blue-200 rounded-lg p-4 relative">
               <pre className="text-sm text-gray-800 whitespace-pre-wrap overflow-x-auto max-h-96 pr-16">
@@ -461,33 +381,40 @@ Create ONE comprehensive HTML artifact that includes both the visual report and 
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-green-900 mb-3">Expected Output</h3>
+              <h3 className="text-lg font-semibold text-green-900 mb-3">Key Improvements</h3>
               <div className="space-y-3">
                 <div className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
                   <div>
-                    <strong className="text-green-800">Single Combined HTML Report:</strong>
-                    <p className="text-green-700 text-sm">Complete document with visual cards/charts PLUS detailed text analysis with blue section divider</p>
+                    <strong className="text-green-800">Adaptive Grid System:</strong>
+                    <p className="text-green-700 text-sm">Adjusts layout based on active programs (1-4 training cards)</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
                   <div>
-                    <strong className="text-green-800">One-Step PDF Conversion:</strong>
-                    <p className="text-green-700 text-sm">No manual merging needed - convert single HTML to PDF for COR submission</p>
+                    <strong className="text-green-800">Conditional Sections:</strong>
+                    <p className="text-green-700 text-sm">Only creates FST/TST/ATD sections when there's actual activity</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <strong className="text-green-800">Dynamic Data Extraction:</strong>
+                    <p className="text-green-700 text-sm">Uses actual financial figures and dates from your draft</p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="bg-amber-50 border border-amber-200 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-amber-900 mb-3">Processing Tips</h3>
+              <h3 className="text-lg font-semibold text-amber-900 mb-3">Flexibility Features</h3>
               <ul className="space-y-2 text-amber-800 text-sm">
-                <li>• Use a fresh Claude chat for each report</li>
-                <li>• Upload draft file immediately after pasting prompt</li>
-                <li>• Review the combined report before saving</li>
-                <li>• Test HTML file in browser before submission</li>
-                <li>• Convert HTML to PDF for COR submission</li>
+                <li>• Works with any number of training programs</li>
+                <li>• Adapts to different monthly financial data</li>
+                <li>• Handles varying course schedules</li>
+                <li>• Analyzes draft content before building structure</li>
+                <li>• Maintains professional formatting standards</li>
               </ul>
             </div>
           </div>
@@ -520,8 +447,8 @@ Create ONE comprehensive HTML artifact that includes both the visual report and 
               <div className="flex items-center p-3 bg-white border border-gray-300 rounded-lg">
                 <FileText size={20} className="text-purple-600 mr-3" />
                 <div>
-                  <div className="font-medium text-gray-900">View Examples</div>
-                  <div className="text-sm text-gray-500">See sample outputs</div>
+                  <div className="font-medium text-gray-900">Robust Design</div>
+                  <div className="text-sm text-gray-500">Adapts to any month</div>
                 </div>
               </div>
             </div>
@@ -550,24 +477,24 @@ Create ONE comprehensive HTML artifact that includes both the visual report and 
           </div>
 
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-blue-900 mb-3">File Handling</h3>
+            <h3 className="text-lg font-semibold text-blue-900 mb-3">Monthly Variation Handling</h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <h4 className="font-medium text-blue-800 mb-2">Supported Input Files:</h4>
+                <h4 className="font-medium text-blue-800 mb-2">Adaptive Features:</h4>
                 <ul className="text-blue-700 text-sm space-y-1">
-                  <li>• Microsoft Word (.docx, .doc)</li>
-                  <li>• PDF files (.pdf)</li>
-                  <li>• Text files (.txt)</li>
-                  <li>• Maximum file size: 10MB</li>
+                  <li>• Grid adjusts to active program count</li>
+                  <li>• Sections created only when needed</li>
+                  <li>• Financial data extracted from draft</li>
+                  <li>• Dates formatted consistently</li>
                 </ul>
               </div>
               <div>
-                <h4 className="font-medium text-blue-800 mb-2">Output Files:</h4>
+                <h4 className="font-medium text-blue-800 mb-2">Common Scenarios:</h4>
                 <ul className="text-blue-700 text-sm space-y-1">
-                  <li>• HTML file for visual report</li>
-                  <li>• Text/Markdown file for summary</li>
-                  <li>• Both ready for PDF conversion</li>
-                  <li>• Professional formatting applied</li>
+                  <li>• No BUD/S training this month ✓</li>
+                  <li>• Only 2 programs active ✓</li>
+                  <li>• Different financial amounts ✓</li>
+                  <li>• Varying student numbers ✓</li>
                 </ul>
               </div>
             </div>
@@ -605,15 +532,15 @@ Create ONE comprehensive HTML artifact that includes both the visual report and 
               <div className="flex items-start">
                 <AlertCircle className="h-5 w-5 text-yellow-600 mr-2 mt-0.5 flex-shrink-0" />
                 <div>
-                  <strong className="text-yellow-800">Student Numbers:</strong>
-                  <p className="text-yellow-700 text-sm">Cross-check enrollment figures and graduation dates</p>
+                  <strong className="text-yellow-800">Grid Layout:</strong>
+                  <p className="text-yellow-700 text-sm">Ensure grid adapts to actual number of active programs</p>
                 </div>
               </div>
               <div className="flex items-start">
                 <AlertCircle className="h-5 w-5 text-yellow-600 mr-2 mt-0.5 flex-shrink-0" />
                 <div>
-                  <strong className="text-yellow-800">Issue Status:</strong>
-                  <p className="text-yellow-700 text-sm">Ensure all pending items show current status and dates</p>
+                  <strong className="text-yellow-800">Section Inclusion:</strong>
+                  <p className="text-yellow-700 text-sm">Verify only active divisions (FST/TST/ATD) are included</p>
                 </div>
               </div>
             </div>
@@ -660,6 +587,37 @@ Create ONE comprehensive HTML artifact that includes both the visual report and 
                   <p className="text-gray-600 text-sm">Point out specific sections that are missing and ask Claude to include them</p>
                 </div>
               </div>
+              <div className="flex items-start">
+                <Info className="h-5 w-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
+                <div>
+                  <strong className="text-gray-800">Wrong grid layout:</strong>
+                  <p className="text-gray-600 text-sm">Remind Claude to "analyze which programs are active and use appropriate grid size"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-purple-900 mb-3">Robust Prompt Benefits</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <h4 className="font-medium text-purple-800 mb-2">Handles Variations:</h4>
+                <ul className="text-purple-700 text-sm space-y-1">
+                  <li>• Seasonal program changes</li>
+                  <li>• Different student numbers</li>
+                  <li>• Varying financial data</li>
+                  <li>• Course schedule modifications</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-medium text-purple-800 mb-2">Maintains Standards:</h4>
+                <ul className="text-purple-700 text-sm space-y-1">
+                  <li>• Professional formatting</li>
+                  <li>• Consistent styling</li>
+                  <li>• PWS compliance</li>
+                  <li>• COR requirements</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -668,12 +626,16 @@ Create ONE comprehensive HTML artifact that includes both the visual report and 
       {/* Footer */}
       <div className="mt-8 bg-blue-900 text-white rounded-lg p-6 text-center">
         <h3 className="text-lg font-semibold mb-2">Ready to Process Your Report?</h3>
-        <p className="text-blue-200 mb-4">Copy the standard prompt above and start a new Claude chat</p>
-        <div className="text-sm text-blue-300">
-          Remember: Draft Report → Standard Prompt → Upload → Review → Save → Submit
+        <p className="text-blue-200 mb-4">Copy the robust prompt above and start a new Claude chat</p>
+        <div className="text-sm text-blue-300 mb-4">
+          Remember: Draft Report → Robust Prompt → Upload → Review → Save → Submit
+        </div>
+        <div className="bg-blue-800 rounded p-3 text-center">
+          <div className="text-sm font-medium text-blue-200 mb-1">✨ Now with Adaptive Intelligence</div>
+          <div className="text-xs text-blue-300">Works with any month's data • Flexible grid system • Smart section detection</div>
         </div>
         <div className="mt-4 pt-4 border-t border-blue-800 text-xs text-blue-300">
-          NITC Report Generator v1.0 | Technical Systems Integration, Inc.
+          NITC Report Generator v2.0 | Technical Systems Integration, Inc.
         </div>
       </div>
     </div>

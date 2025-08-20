@@ -6,14 +6,62 @@ Copy and paste this entire prompt exactly as written. Do not modify or shorten i
 
 ---
 
-**Please process this NITC monthly draft report and generate both deliverables using the EXACT formatting specifications below:**
+Please process this NITC monthly draft report and generate a SINGLE comprehensive HTML report combining both visual and detailed text formats:
 
-## **DELIVERABLE 1: HTML Visual Report**
+**DELIVERABLE: Combined HTML Report Structure**
 
-**MANDATORY: Use this EXACT CSS and HTML structure:**
+**PART 1: Visual Executive Report (First Half)**
+- Executive Summary with KPI cards (4 cards in horizontal grid)
+- Training Operations Overview (adaptive grid based on active programs)
+- Program Management Achievements (PWS 3.6)
+- Training Division sections (FST, TST, ATD) with green overview boxes (only include divisions with activity)
+- Contractor Personnel Changes (always include, even if no changes)
+- Current Issues & Funding Status (PWS 3.3.2)
+- Financial Performance with detailed table
+- Contract Key Performance Indicators
 
-### **Required CSS Framework:**
-```css
+**PART 2: Detailed Text Summary (Second Half)**
+Add blue section divider, then include detailed text analysis, ending with gray footer:
+- Complete PWS-organized text analysis
+- Detailed program narratives for active programs only
+- Comprehensive financial breakdown
+- Full issue documentation
+- Next month objectives
+- Gray footer banner at the very end
+
+**ADAPTIVE CONTENT STRUCTURE**
+
+**Training Operations Overview - Flexible Grid:**
+- Create grid based on ACTIVE programs mentioned in the draft
+- Use 2x2 grid if 4 programs are active
+- Use 2x1 grid if 2-3 programs are active  
+- Use single column if only 1 program is active
+- Common programs: BUD/S Preparation, Dive Preparation, NAS Pensacola Aviation, NAS Whiting Field Aviation
+- IMPORTANT: Only include programs that have actual activity/students in the reporting period
+
+**Training Division Sections - Conditional Inclusion:**
+Only create sections for divisions with reported activity:
+- FST (Fundamental Skills Training) - Include if Basic Military Training, dunker training, or foundational courses mentioned
+- TST (Technical and Specialized Training) - Include if specialized technical courses, certifications, or advanced training mentioned  
+- ATD (Aviation Training Division) - Include if flight training, aviation courses, or pilot/aircrew training mentioned
+
+Format for each active division:
+<div class="highlight-box">
+    <h4><strong>[Month] [Year] Overview:</strong></h4>
+    <p>[2-3 sentence summary of key activities, achievements, and current status for this division]</p>
+</div>
+
+**Financial Data - Use Actual Values:**
+Extract and use EXACT financial figures from the draft:
+- Monthly labor hours (exact number from draft)
+- Invoice amounts (full precision, never rounded)
+- Burn rates (to 2 decimal places)
+- Remaining funding by CLIN (exact amounts)
+- Travel and ODC balances (actual remaining amounts)
+
+**MANDATORY CSS AND HTML STRUCTURE:**
+
+Required CSS Framework:
 * {
     margin: 0;
     padding: 0;
@@ -41,31 +89,6 @@ body {
     text-align: center;
 }
 
-.header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    font-weight: 300;
-}
-
-.header-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-top: 1.5rem;
-    font-size: 0.9rem;
-}
-
-.header-info div {
-    background: rgba(255,255,255,0.1);
-    padding: 0.75rem;
-    border-radius: 8px;
-    backdrop-filter: blur(10px);
-}
-
-.content {
-    padding: 2rem;
-}
-
 .section-title {
     background: #f1f5f9;
     color: #1e40af;
@@ -76,18 +99,47 @@ body {
     font-weight: 600;
 }
 
+.kpi-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 1rem auto;
+    max-width: 880px;
+    gap: 20px;
+}
+
+.kpi-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 200px;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.training-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin: 1rem 0;
+}
+
+.grid-2x2 { grid-template-columns: repeat(2, 1fr); }
+.grid-2x1 { grid-template-columns: repeat(2, 1fr); }
+.grid-1x1 { grid-template-columns: 1fr; }
+
 .training-card {
     background: white;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     padding: 1.5rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.training-card h4 {
-    color: #1e40af;
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
 }
 
 .training-card ul {
@@ -98,149 +150,96 @@ body {
     list-style-position: inside;
 }
 
-.kpi-card {
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
+.highlight-box {
+    background: #f0fdf4;
+    border: 1px solid #22c55e;
+    border-radius: 8px;
     padding: 1.5rem;
-    text-align: center;
+    margin: 1rem 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.kpi-value {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #22c55e;
-    margin-bottom: 0.5rem;
+th {
+    background: #374151;
+    color: white;
+    padding: 1rem 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
 }
 
-.metric-value {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #1e40af;
+td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 0.9rem;
 }
-```
 
-### **EXACT Header Structure Required:**
-```html
-<div class="header">
-    <h1>NITC Monthly Report</h1>
-    <div class="header-info">
-        <div><strong>Reporting Period:</strong><br>[Month] 1-31, [Year]</div>
-        <div><strong>Contract:</strong><br>N0017819D8663</div>
-        <div><strong>Delivery Order:</strong><br>N0018924F3006</div>
-        <div><strong>Contractor:</strong><br>Technical Systems Integration, Inc.</div>
-    </div>
-</div>
-```
+tr:nth-child(even) {
+    background-color: #f9fafb;
+}
 
-### **EXACT Section Structure Required:**
-1. **Executive Summary** - with 4 KPI cards in grid
-2. **Training Operations Overview (PWS 3.1)** - with training cards in grid
-3. **Program Management Achievements (PWS 3.6)** - with subsections
-4. **Fundamental Skills Training (FST) (PWS 3.1)** - with achievements and table
-5. **Current Issues & Funding Status (PWS 3.3.2)** - with pending funding table
-6. **Financial Performance** - with metrics grid and detailed table
-7. **Contract Key Performance Indicators** - with compliance table
-8. **[Next Month] Objectives** - with highlight box
+**CONTENT EXTRACTION GUIDELINES:**
 
-### **CRITICAL Formatting Requirements:**
-- **Dates:** ALWAYS "Month DD, YYYY" format (e.g., "August 15, 2025")
-- **Financial:** NEVER round - show exact decimals (e.g., "$12,633,596.54")
-- **PWS References:** In ALL section headers (e.g., "Section Title (PWS X.X)")
-- **Colors:** Navy blues #1e3a8a and #3b82f6 ONLY
-- **Bullet Points:** Use `padding-left: 0; list-style-position: inside;`
-- **Grid Layouts:** Use CSS Grid for cards and metrics
-- **Cards:** 4-5 specific bullet points each with quantified achievements
-
-### **Training Card Template (Use This Exact Format):**
-```html
+Training Card Template (Adapt to actual programs):
 <div class="training-card">
-    <h4>[Program Name] <span style="font-size: 0.8em; color: #64748b;">(PWS X.X)</span></h4>
-    <p>[Brief program description]</p>
+    <h4>[Actual Program Name from Draft] <span style="font-size: 0.8em; color: #64748b;">(PWS X.X)</span></h4>
+    <p>[Brief program description based on activities]</p>
     <ul style="margin: 1rem 0; font-size: 0.9rem; color: #4b5563; padding-left: 0; list-style-position: inside;">
-        <li>[Specific achievement with numbers and dates]</li>
-        <li>[Specific achievement with numbers and dates]</li>
-        <li>[Specific achievement with numbers and dates]</li>
-        <li>[Specific achievement with numbers and dates]</li>
+        <li>[Extract specific achievements with numbers and dates from draft]</li>
+        <li>[Include graduations, arrivals, completions mentioned]</li>
+        <li>[Add simulator events, classroom hours if specified]</li>
+        <li>[Mention any zero failure rates or exceptional performance]</li>
     </ul>
     <div class="metrics-row">
         <div class="metric-item">
-            <div class="metric-value">[Number]</div>
-            <div class="metric-label">[Label]</div>
+            <div class="metric-value">[Extract actual numbers from draft]</div>
+            <div class="metric-label">[Use appropriate label based on context]</div>
         </div>
     </div>
 </div>
-```
 
-## **DELIVERABLE 2: Text Summary Report**
+**Date Formatting Standard:**
+- ALWAYS use format: Month DD, YYYY
+- Examples: "August 15, 2025", "September 03, 2025"
+- Never use: Aug 15, 2025 or 15 August 2025 or 8/15/25
 
-### **EXACT Structure Required:**
-```markdown
-# NITC Monthly Report Summary
-## [Month] [Year]
+**Financial Precision:**
+- NEVER round financial figures
+- Use exact amounts: "$12,633,596.54" not "$12.6M"
+- Include all decimal places as provided in source data
 
-**Contract:** N0017819D8663, Delivery Order N0018924F3006  
-**Contractor:** Technical Systems Integration, Inc.  
-**Period:** [Month] 1-31, [Year]  
-**Submitted to:** Mrs. Shay Previllon, COR
+**Blue Section Divider (Visual Separator):**
+<div style="margin-top: 3rem; padding-top: 2rem; border-top: 3px solid #1e40af;">
+    <div style="text-align: center; background: #f1f5f9; padding: 1rem; margin-bottom: 2rem;">
+        <h2 style="color: #1e40af; margin: 0;">DETAILED MONTHLY SUMMARY</h2>
+        <p style="color: #64748b; margin: 0.5rem 0 0 0;">Comprehensive PWS-Organized Analysis</p>
+    </div>
+</div>
 
----
+**Gray Footer Banner (End of Document):**
+<div class="footer" style="background: #f1f5f9; padding: 2rem; text-align: center; color: #64748b; font-size: 0.9rem;">
+    <p><strong>Report Prepared By:</strong><br>Tony Moreno, Program Manager | Phone: (904) 738-2926</p>
+    <p><strong>Technical Systems Integration, Inc.</strong> | Contract N0017819D8663, Delivery Order N0018924F3006</p>
+    <p>Submitted to: Mrs. Shay Previllon, Contracting Officer's Representative</p>
+</div>
 
-## Executive Summary
-[Performance statement and key highlights]
+**CRITICAL INSTRUCTIONS:**
 
-**Key Performance Highlights:**
-- [Metric] contract compliance maintained
-- [Metric] NITC graduation rate achieved
-- [Metric] FOT attrition rate (well below maximum)
-- [Metric] staffing level and instructor qualification compliance
+1. Analyze the draft first - Identify which programs/divisions have actual activity before creating sections
+2. Use adaptive grids - Don't force a 2x2 grid if only 2 programs are active
+3. Extract exact data - Pull specific numbers, dates, and achievements from the draft content
+4. Include PWS references - Add (PWS X.X) to all major section headers
+5. Maintain consistency - Use dark table headers (#374151) and alternating row colors for ALL tables
+6. Create single HTML artifact - Include both visual report and detailed text summary in one document
 
----
+GENERATE: One comprehensive HTML artifact that adapts to the actual content and activity levels described in the monthly draft report.
 
-## PWS 3.1 - Educational and Training Services
-[Detailed content organized by program]
-
-## PWS 3.2 - Training Implementation
-[Material development and curriculum updates]
-
-## PWS 3.3 - Systems Engineering and Technical Services
-[Network operations and technical support]
-
-## PWS 3.6 - Training Liaison
-[Administrative support and coordination activities]
-
----
-
-## Financial Performance Summary
-[Exact financial figures with full decimal precision]
-
----
-
-## Current Issues and Corrective Actions
-[Issue tracking with specific dates]
-
----
-
-## [Next Month] Objectives
-[Priority focus areas]
-```
-
-## **QUALITY CONTROL CHECKLIST:**
-
-Before generating reports, verify:
-- [ ] Navy color scheme (#1e3a8a, #3b82f6) used throughout
-- [ ] All dates in "Month DD, YYYY" format
-- [ ] Financial figures show full precision (never rounded)
-- [ ] PWS references in ALL major section headers
-- [ ] Training cards have exactly 4-5 bullet points
-- [ ] Bullet points use proper CSS alignment
-- [ ] KPI cards show percentages
-- [ ] Responsive grid layouts used
-- [ ] Print-optimized styling included
-
-## **CRITICAL: Generate Both Reports as Separate Artifacts**
-
-Create the HTML report as one artifact and the text summary as a completely separate artifact. Each must be copyable and saveable independently.
-
-**IMPORTANT:** Follow this template EXACTLY. Do not deviate from the CSS styles, HTML structure, or formatting requirements. Consistency is critical for monthly reporting.
+Please create both reports as separate artifacts that can be copied and saved.
