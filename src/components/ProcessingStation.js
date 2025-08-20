@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Upload, FileText, Download, CheckCircle, AlertCircle, Info, Copy, BookOpen, Settings } from 'lucide-react';
+import { Upload, FileText, CheckCircle, AlertCircle, Info, Copy, BookOpen, Settings } from 'lucide-react';
 
 const ProcessingStation = () => {
   const [activeTab, setActiveTab] = useState('process');
